@@ -7,10 +7,15 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
+import { Link, Outlet } from 'react-router-dom';
+import GetJob from './GetJob';
 
 export default function IntroDivider({ coinData }) {
-    const [price, setPrice] = useState("") //price = number
-    // const dataJobs = Data.map((job) => job.id == );
+
+
+    const handleClick = (job) => {
+        console.log(job)
+    }
     return (
         coinData.map((job, index) => (
             <Card key={index} variant="outlined" sx={{ maxWidth: 400, display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -33,7 +38,7 @@ export default function IntroDivider({ coinData }) {
                         {job.description}
                     </Typography>
                     <CardActions>
-                        <Button size="small">Learn More</Button>
+                        <GetJob job={job} />
                     </CardActions>
                 </Box>
             </Card>

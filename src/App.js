@@ -2,10 +2,10 @@ import './css/App.css';
 import React from 'react'
 import Header from './pages/Header'
 import Main from './pages/Main'
-import { Link, Outlet } from 'react-router-dom'
-import Login from './components/Login'
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Data from "./data.json"
+import Login from "./components/Login"
+import { Outlet } from 'react-router-dom';
+
 
 function App() {
   const [coinData, setCoinData] = React.useState([])
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header></Header>
       <Main coinData={currentPost} totalPosts={coinData.length} postPerPage={postPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
     </div>
   );

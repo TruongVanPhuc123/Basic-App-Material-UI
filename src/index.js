@@ -2,20 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import Header from './pages/Header'
-import Main from './pages/Main'
+import Login from "./components/Login";
+import { AuthProvider } from "./context/AuthContext";
+import AboutItem from "./components/AboutItem"
+import DetailJob from './components/DetailJob';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<App />}>
-        <Route path='header' element={<Header />} />
-        <Route path='login' element={<Header />} />
-        <Route path='main' element={<Main />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
+  <AuthProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="/about/:id" element={<DetailJob />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
+  </AuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
