@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
+import React from 'react'
+import Header from './pages/Header'
+import Main from './pages/Main'
+import { Link, Outlet } from 'react-router-dom'
+import Login from './components/Login'
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Data from "./data.json"
 
 function App() {
+  const [coinData, setCoinData] = React.useState([])
+  const [currentPage, setCurrentPage] = React.useState(1)
+  const [postPerPage, setPostPerPage] = React.useState(3)
+
+  React.useEffect(() => {
+    setCoinData(Data)
+  }, [])
+
+  const lastPostIndex = currentPage * postPerPage;
+  const firtPostIndex = lastPostIndex - postPerPage;
+  const currentPost = coinData.slice(firtPostIndex, lastPostIndex)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Main coinData={currentPost} totalPosts={coinData.length} postPerPage={postPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
     </div>
   );
 }
