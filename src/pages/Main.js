@@ -6,14 +6,12 @@ import BasicPagination from '../components/Panigation';
 
 function Main({ coinData, totalPosts, postPerPage, setCurrentPage, currentPage }) {
     return (
-        <div div className='container' >
-            <div className='all-item'>
-                <div className='card-item'>
-                    <CardItems coinData={coinData} />
-                </div>
-                <BasicPagination totalPosts={totalPosts} postPerPage={postPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
+        <div div className='container-main' >
+            <div className='card-item'>
+                <CardItems coinData={coinData} />
             </div>
-            <div className="">
+            <div className='btn-pagination'>
+                <BasicPagination totalPosts={totalPosts} postPerPage={postPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
             </div>
         </div >
     )

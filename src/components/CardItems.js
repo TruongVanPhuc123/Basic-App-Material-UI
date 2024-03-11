@@ -18,7 +18,7 @@ export default function IntroDivider({ coinData }) {
     }
     return (
         coinData.map((job, index) => (
-            <Card key={index} variant="outlined" sx={{ maxWidth: 400, display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <Card key={index} variant="outlined" sx={{ maxWidth: 400, height: 300, display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <Box sx={{ p: 2 }}>
                     <Stack direction="row" justifyContent="space-between" alignItems="center">
                         <Typography gutterBottom variant="h5" component="div">
@@ -38,7 +38,9 @@ export default function IntroDivider({ coinData }) {
                         {job.description}
                     </Typography>
                     <CardActions>
-                        <GetJob job={job} />
+                        <Link to='/about/:id'>
+                            <GetJob job={job} />
+                        </Link>
                     </CardActions>
                 </Box>
             </Card>

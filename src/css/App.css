@@ -44,6 +44,19 @@ li {
   color: #61dafb;
 }
 
+.container {
+  margin: 0px;
+  color: rgb(255, 255, 255);
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+
+}
+
+@media only screen and (max-width: 414px) {}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

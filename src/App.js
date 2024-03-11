@@ -22,8 +22,8 @@ function App() {
 
 
   return (
-    <div>
-      <Header></Header>
+    <div className='container'>
+      <Header />
       <Main coinData={currentPost} totalPosts={coinData.length} postPerPage={postPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
     </div>
   );

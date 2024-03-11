@@ -5,6 +5,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { blue, red } from '@mui/material/colors';
 import { Button } from '@mui/material';
 import "../css/App.css"
+import PaginationNew from './PaginationNew';
 
 const theme = createTheme({
     palette: {
@@ -30,19 +31,19 @@ export default function BasicPagination({ totalPosts, postPerPage, setCurrentPag
     }
 
     return (
-        <div >
+        <div className='btn-group'>
             <Stack spacing={2} sx={{ color: "white", flexDirection: "row", gap: 10 }}>
                 <ThemeProvider theme={theme}>
-                    {pages.map((page, index) => {
-                        // return <Pagination key={index} count={page}></Pagination>
+                    <PaginationNew setCurrentPage={setCurrentPage} pages={pages} />
+                    {/* {pages.map((page, index) => {
+                        // return <PaginationNew page={page} index={index} setCurrentPage={setCurrentPage} />
                         return <Button key={index}
                             sx={{ width: "200px" }}
-                            className={page == currentPage ? "active" : ""}
                             variant="outlined"
                             onClick={() => setCurrentPage(page)}>
                             {page}</Button>
 
-                    })}
+                    })} */}
                 </ThemeProvider>
             </Stack>
         </div>
